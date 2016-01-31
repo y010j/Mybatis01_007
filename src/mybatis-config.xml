@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- <typeAliases>
+		<typeAlias type="com.yjj.domain.Student" alias="Student"/>
+	</typeAliases> -->
+	<typeAliases>
+		<package name="java.com.user.dto.UserDto"/>
+	</typeAliases>
+	<environments default="development">
+		<!-- id必须唯一 -->
+		<environment id="development">
+		<!-- 事务管理器，这里直接使用jdbc的事务管理能力 -->
+			<transactionManager type="jdbc" />
+			<!-- 数据源配置一 -->
+			<!-- type="POOLED"表明使用联接池的技术一 -->
+			<dataSource type="POOLED"> 
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/test" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 采用相对路径一 -->
+	<mappers>
+		<mapper resource="/config/UserMapper.xml" />
+	</mappers>
+</configuration>
